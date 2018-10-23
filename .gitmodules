@@ -1,0 +1,3 @@
+[submodule "PromiseSwift"]
+	path = PromiseSwift
+	url = https://github.com/GlebRadchenko/PromiseSwift.git
