@@ -1,5 +1,5 @@
 //
-//  Awaitable+URLSession.swift
+//  URLSession+AwaitCompatible.swift
 //  AwaitSwift
 //
 //  Created by Gleb Radchenko on 10/24/18.
@@ -9,13 +9,12 @@
 import Foundation
 import PromiseSwift
 
-extension URLSession: Awaitable { }
-extension Awaitable where T: URLSession {
+extension Awaitable where Base: URLSession {
     public typealias DataTaskCompletion = (Data?, URLResponse?)
     
     public func sendRequest(queue: DispatchQueue = .global(), _ request: URLRequest) -> Promise<DataTaskCompletion> {
         return async(queue: queue) { (resolve) in
-            self.awaitable.dataTask(with: request) { (data, response, error) in
+            self.base.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     resolve(.error(error))
                 } else {

@@ -31,13 +31,7 @@ public func await<R>(queue: DispatchQueue = .global(), _ block: @escaping () thr
 
 @discardableResult
 public func await<R>(_ promise: Promise<R>) throws -> R {
-    let semaphore = DispatchSemaphore(value: 0)
-    
-    var result: PromiseResult<R> = .error(NSError.defaultAwaitError())
-    promise.execute { result = $0; semaphore.signal() }
-    
-    semaphore.wait()
-    return try result.valueOrThrow()
+    return try promise.await()
 }
 
 @discardableResult

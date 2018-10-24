@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F718CEAB21805A8F0053ED6D /* Promise+AwaitCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F718CEAA21805A8F0053ED6D /* Promise+AwaitCompatible.swift */; };
 		F7E4B268217FC96100FF1CA7 /* AwaitSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E4B266217FC96100FF1CA7 /* AwaitSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F7E4B27E217FCADB00FF1CA7 /* AwaitSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B27D217FCADB00FF1CA7 /* AwaitSwift.swift */; };
 		F7E4B289217FCAF900FF1CA7 /* PromiseSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E4B285217FCAEC00FF1CA7 /* PromiseSwift.framework */; };
@@ -17,7 +18,7 @@
 		F7E4B32B217FDD8100FF1CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B329217FDD8100FF1CA7 /* LaunchScreen.storyboard */; };
 		F7E4B330217FDD8E00FF1CA7 /* AwaitSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E4B263217FC96100FF1CA7 /* AwaitSwift.framework */; };
 		F7E4B341217FE58D00FF1CA7 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B340217FE58D00FF1CA7 /* Awaitable.swift */; };
-		F7E4B343217FE77700FF1CA7 /* Awaitable+URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B342217FE77700FF1CA7 /* Awaitable+URLSession.swift */; };
+		F7E4B343217FE77700FF1CA7 /* URLSession+AwaitCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B342217FE77700FF1CA7 /* URLSession+AwaitCompatible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F718CEAA21805A8F0053ED6D /* Promise+AwaitCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+AwaitCompatible.swift"; sourceTree = "<group>"; };
 		F7E4B263217FC96100FF1CA7 /* AwaitSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwaitSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4B266217FC96100FF1CA7 /* AwaitSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwaitSwift.h; sourceTree = "<group>"; };
 		F7E4B267217FC96100FF1CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		F7E4B32A217FDD8100FF1CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7E4B32C217FDD8100FF1CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7E4B340217FE58D00FF1CA7 /* Awaitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awaitable.swift; sourceTree = "<group>"; };
-		F7E4B342217FE77700FF1CA7 /* Awaitable+URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Awaitable+URLSession.swift"; sourceTree = "<group>"; };
+		F7E4B342217FE77700FF1CA7 /* URLSession+AwaitCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+AwaitCompatible.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +155,8 @@
 		F7E4B33F217FE4D700FF1CA7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F7E4B342217FE77700FF1CA7 /* Awaitable+URLSession.swift */,
+				F7E4B342217FE77700FF1CA7 /* URLSession+AwaitCompatible.swift */,
+				F718CEAA21805A8F0053ED6D /* Promise+AwaitCompatible.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,7 +299,8 @@
 			files = (
 				F7E4B341217FE58D00FF1CA7 /* Awaitable.swift in Sources */,
 				F7E4B27E217FCADB00FF1CA7 /* AwaitSwift.swift in Sources */,
-				F7E4B343217FE77700FF1CA7 /* Awaitable+URLSession.swift in Sources */,
+				F718CEAB21805A8F0053ED6D /* Promise+AwaitCompatible.swift in Sources */,
+				F7E4B343217FE77700FF1CA7 /* URLSession+AwaitCompatible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
