@@ -21,9 +21,9 @@ public func await<R>(queue: DispatchQueue = .global(), _ block: @escaping () thr
         Promise<R>(queue: queue) { (resolve) in
             do {
                 let r = try block()
-                resolve(.value(element: r))
+                resolve(.value(r))
             } catch {
-                resolve(.error(error: error))
+                resolve(.error(error))
             }
         }
     )
@@ -33,7 +33,7 @@ public func await<R>(queue: DispatchQueue = .global(), _ block: @escaping () thr
 public func await<R>(_ promise: Promise<R>) throws -> R {
     let semaphore = DispatchSemaphore(value: 0)
     
-    var result: PromiseResult<R> = .error(error: NSError.defaultAwaitError())
+    var result: PromiseResult<R> = .error(NSError.defaultAwaitError())
     promise.execute { result = $0; semaphore.signal() }
     
     semaphore.wait()
@@ -41,7 +41,7 @@ public func await<R>(_ promise: Promise<R>) throws -> R {
 }
 
 @discardableResult
-public func async<R>(queue: DispatchQueue = .global(), _ block: @escaping ((PromiseResult<R>) -> Void) -> Void) -> Promise<R> {
+public func async<R>(queue: DispatchQueue = .global(), _ block: @escaping (@escaping (PromiseResult<R>) -> Void) -> Void) -> Promise<R> {
     return Promise<R>(queue: queue) { block($0) }
 }
 
@@ -50,9 +50,9 @@ public func async<R>(queue: DispatchQueue = .global(), _ block: @escaping () thr
     return Promise<R>(queue: queue) { (resolve) in
         do {
             let r = try block()
-            resolve(.value(element: r))
+            resolve(.value(r))
         } catch {
-            resolve(.error(error: error))
+            resolve(.error(error))
         }
     }
 }

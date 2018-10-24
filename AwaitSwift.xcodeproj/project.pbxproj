@@ -16,6 +16,8 @@
 		F7E4B328217FDD8100FF1CA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B327217FDD8100FF1CA7 /* Assets.xcassets */; };
 		F7E4B32B217FDD8100FF1CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B329217FDD8100FF1CA7 /* LaunchScreen.storyboard */; };
 		F7E4B330217FDD8E00FF1CA7 /* AwaitSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E4B263217FC96100FF1CA7 /* AwaitSwift.framework */; };
+		F7E4B341217FE58D00FF1CA7 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B340217FE58D00FF1CA7 /* Awaitable.swift */; };
+		F7E4B343217FE77700FF1CA7 /* Awaitable+URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B342217FE77700FF1CA7 /* Awaitable+URLSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		F7E4B327217FDD8100FF1CA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7E4B32A217FDD8100FF1CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7E4B32C217FDD8100FF1CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7E4B340217FE58D00FF1CA7 /* Awaitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awaitable.swift; sourceTree = "<group>"; };
+		F7E4B342217FE77700FF1CA7 /* Awaitable+URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Awaitable+URLSession.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 		F7E4B279217FCAA200FF1CA7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F7E4B33F217FE4D700FF1CA7 /* Extensions */,
+				F7E4B340217FE58D00FF1CA7 /* Awaitable.swift */,
 				F7E4B27D217FCADB00FF1CA7 /* AwaitSwift.swift */,
 			);
 			path = Sources;
@@ -142,6 +148,14 @@
 				F7E4B32C217FDD8100FF1CA7 /* Info.plist */,
 			);
 			path = Buildable;
+			sourceTree = "<group>";
+		};
+		F7E4B33F217FE4D700FF1CA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4B342217FE77700FF1CA7 /* Awaitable+URLSession.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E4B341217FE58D00FF1CA7 /* Awaitable.swift in Sources */,
 				F7E4B27E217FCADB00FF1CA7 /* AwaitSwift.swift in Sources */,
+				F7E4B343217FE77700FF1CA7 /* Awaitable+URLSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
