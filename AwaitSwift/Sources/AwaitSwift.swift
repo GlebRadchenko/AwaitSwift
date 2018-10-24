@@ -9,6 +9,8 @@
 import Foundation
 import PromiseSwift
 
+public typealias AwaitResult = PromiseResult
+
 extension Error {
     static func defaultAwaitError() -> NSError {
         return NSError(domain: "await-swift", code: 0, userInfo: nil)
@@ -35,7 +37,7 @@ public func await<R>(_ promise: Promise<R>) throws -> R {
 }
 
 @discardableResult
-public func async<R>(queue: DispatchQueue = .global(), _ block: @escaping (@escaping (PromiseResult<R>) -> Void) -> Void) -> Promise<R> {
+public func async<R>(queue: DispatchQueue = .global(), _ block: @escaping (@escaping (AwaitResult<R>) -> Void) -> Void) -> Promise<R> {
     return Promise<R>(queue: queue) { block($0) }
 }
 
