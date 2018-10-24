@@ -25,7 +25,7 @@ extension Awaitable where Base: URLSession {
     }
     
     public func sendRequest(queue: DispatchQueue = .global(), _ request: URLRequest) throws -> DataTaskCompletion {
-        return try await(sendRequest(queue: queue, request))
+        return try sendRequest(queue: queue, request).await()
     }
     
     public func sendRequest(queue: DispatchQueue = .global(), _ request: URLRequest) -> Promise<Data> {
@@ -41,7 +41,7 @@ extension Awaitable where Base: URLSession {
     }
     
     public func sendRequest(queue: DispatchQueue = .global(), _ request: URLRequest) throws -> Data {
-        return try await(sendRequest(queue: queue, request))
+        return try sendRequest(queue: queue, request).await()
     }
     
     public func sendRequest<R: Decodable>(queue: DispatchQueue = .global(), _ request: URLRequest) -> Promise<R> {
@@ -52,6 +52,6 @@ extension Awaitable where Base: URLSession {
     }
     
     public func sendRequest<R: Decodable>(queue: DispatchQueue = .global(), _ request: URLRequest) throws ->  R {
-        return try await(sendRequest(queue: queue, request))
+        return try sendRequest(queue: queue, request).await()
     }
 }
