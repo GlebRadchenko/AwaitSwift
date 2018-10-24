@@ -15,8 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application
+        (_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         test()
+        
+        do {
+            let userAndChildren = try loginAndGetChildred(for: "Gleb").await()
+        } catch {
+            print(error)
+        }
+        
         return true
     }
     
@@ -44,6 +52,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
     }
-
+    
+    class User: Decodable {
+        var name: String
+    }
+    
+    func login(name: String) -> Promise<User> {
+        return async {
+            let request = URLRequest.init(url: URL(string: "https://google.com/")!)
+            let user: User = try URLSession.shared.aw.sendRequest(request).await()
+            return user
+        }
+    }
+    
+    func getChildren(for user: User) -> Promise<[User]> {
+        return async {
+            let request = URLRequest.init(url: URL(string: "")!)
+            let children: [User] = try URLSession.shared.aw.sendRequest(request).await()
+            return children
+        }
+    }
+    
+    func loginAndGetChildred(for userName: String) -> Promise<(User, [User])> {
+        return async {
+            let user = try self.login(name: userName).await()
+            let children = try self.getChildren(for: user).await()
+            
+            return (user, children)
+        }
+    }
 }
 

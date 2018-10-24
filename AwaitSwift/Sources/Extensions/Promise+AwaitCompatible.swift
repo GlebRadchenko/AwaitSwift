@@ -12,6 +12,8 @@ import PromiseSwift
 extension Promise: AwaitCompatible {
     @discardableResult
     public func await() throws -> Element {
+        checkThread()
+        
         let semaphore = DispatchSemaphore(value: 0)
         
         var result: PromiseResult<Element> = .error(NSError.defaultAwaitError())
@@ -19,5 +21,9 @@ extension Promise: AwaitCompatible {
         
         semaphore.wait()
         return try result.valueOrThrow()
+    }
+    
+    fileprivate func checkThread() {
+        assert(!Thread.isMainThread, "Can't call \(#function) on Main Thread")
     }
 }

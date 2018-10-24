@@ -17,17 +17,17 @@ public struct Awaitable<Base> {
 public protocol AwaitCompatible {
     associatedtype CompatibleType
     
-    var await: Awaitable<CompatibleType> { get set }
-    static var await: Awaitable<CompatibleType>.Type { get set }
+    var aw: Awaitable<CompatibleType> { get set }
+    static var aw: Awaitable<CompatibleType>.Type { get set }
 }
 
 extension AwaitCompatible {
-    public var await: Awaitable<Self> {
+    public var aw: Awaitable<Self> {
         get { return Awaitable(base: self) }
         set { }
     }
     
-    public static var await: Awaitable<Self>.Type {
+    public static var aw: Awaitable<Self>.Type {
         get { return Awaitable<Self>.self }
         set { }
     }
