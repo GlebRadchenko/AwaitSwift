@@ -53,7 +53,7 @@ public func async<R>(queue: DispatchQueue = .global(), _ block: @escaping () thr
     }
 }
 
-public func async<R>(queue: DispatchQueue = .global(), _ block: @escaping () throws -> R) {
+public func performAsync<R>(queue: DispatchQueue = .global(), _ block: @escaping () throws -> R) {
     let promise: Promise<R> = async(queue: queue, block)
     promise.execute()
 }
