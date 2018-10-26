@@ -14,13 +14,15 @@ extension Awaitable where Base: URLSession {
     
     public func sendRequest(queue: DispatchQueue = .global(), _ request: URLRequest) -> Promise<DataTaskCompletion> {
         return async(queue: queue) { (resolve) in
-            self.base.dataTask(with: request) { (data, response, error) in
+            let task = self.base.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     resolve(.error(error))
                 } else {
                     resolve(.value((data, response)))
                 }
             }
+            
+            task.resume()
         }
     }
     
